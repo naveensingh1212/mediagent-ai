@@ -1,7 +1,8 @@
 fastapi
 uvicorn
 pymupdf
-crewai>=0.80.0
+crewai==0.11.2
 groq
 python-dotenv
 python-multipart
+tiktoken
