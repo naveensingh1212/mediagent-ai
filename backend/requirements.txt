@@ -5,3 +5,4 @@ crewai==0.11.2
 groq
 python-dotenv
 python-multipart
+tiktoken>=0.7.0
