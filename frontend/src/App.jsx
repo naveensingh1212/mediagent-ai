@@ -52,13 +52,18 @@ function App() {
     try {
       const formData = new FormData();
       formData.append("file", file);
-      const response = await fetch("http://localhost:8000/analyze", {
-        method: "POST",
-        body: formData,
-      });
-      const data = await response.json();
-      setResult(data);
-      setStatus("result");
+      const response = await fetch("https://mediagent-ai-1.onrender.com/analyze", {
+  method: "POST",
+  body: formData,
+});
+
+console.log("STATUS:", response.status);
+
+const text = await response.text();   // 👈 CHANGE THIS
+console.log("RAW RESPONSE:", text);
+
+const data = JSON.parse(text);        // 👈 then parse manually
+setResult(data);
     } catch (error) {
       setResult({ summary: "Error occurred. Please try again." });
       setStatus("result");
