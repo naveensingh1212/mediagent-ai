@@ -46,29 +46,24 @@ function App() {
       .replace(/(\d+)\.\s/g, '<br/><strong>$1.</strong> ');
   };
 
-  const handleUpload = async () => {
-    if (!file) return;
-    setStatus("loading");
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const response = await fetch("https://mediagent-ai-1.onrender.com/analyze", {
-  method: "POST",
-  body: formData,
-});
-
-console.log("STATUS:", response.status);
-
-const text = await response.text();   // 👈 CHANGE THIS
-console.log("RAW RESPONSE:", text);
-
-const data = JSON.parse(text);        // 👈 then parse manually
-setResult(data);
-    } catch (error) {
-      setResult({ summary: "Error occurred. Please try again." });
-      setStatus("result");
-    }
-  };
+const handleUpload = async () => {
+  if (!file) return;
+  setStatus("loading");
+  try {
+    const formData = new FormData();
+    formData.append("file", file);
+    const response = await fetch("https://mediagent-ai-1.onrender.com/analyze", {
+      method: "POST",
+      body: formData,
+    });
+    const data = await response.json();
+    setResult(data);
+    setStatus("result");  // ← ADD THIS LINE
+  } catch (error) {
+    setResult({ summary: "Error occurred. Please try again." });
+    setStatus("result");
+  }
+};
 
   const Card = ({ title, content, colorKey, expandKey }) => {
     const colors = {
