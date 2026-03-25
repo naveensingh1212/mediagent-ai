@@ -5,10 +5,9 @@ from crewai import Agent,Task,Crew
 from langchain_groq import ChatGroq
 
 llm = ChatGroq(
-    model="llama-3.1-70b-versatile",
+    model="llama-3.3-70b-versatile",
     api_key=os.getenv("GROQ_API_KEY")
 )
-
 def run_nlp_agent(parsed_data):
 
     nlp_agent = Agent(
