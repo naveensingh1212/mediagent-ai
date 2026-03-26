@@ -105,7 +105,7 @@ const handleUpload = async () => {
       <nav className="bg-white shadow-sm px-8 py-4 flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full bg-green-500"></div>
-          <span className="font-semibold text-gray-800 text-lg">MediScan AI</span>
+          <span className="font-semibold text-gray-800 text-lg">MediAgent-Ai</span>
         </div>
         <span className="text-sm bg-green-50 text-green-700 px-3 py-1 rounded-full">
           5 agents active
